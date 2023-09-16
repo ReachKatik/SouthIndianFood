@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>South Indian food</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
@@ -20,6 +21,38 @@
             </ul>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars" title="Menu"></i>
+            </div>
+        </div>
+        <div class="offer-box" id="offer-box">
+            <div class="offer-wrapper">
+                <!-- <i class="fa-solid fa-hand-point-right"></i> -->
+                <img src="offer.png" alt="special offer banner">
+                <h2>Vinayagar chathurthi festival special sweets/snacks. Click <span id="openBtn"><a href="#modal">here</a></span> for details.</h2>
+                <div id="modal" class="modal">
+                    <div class="modal-inner">
+                        <div class="modal-top">
+                            <div class="modal-title">Limited Quantities. Hurry!</div>
+                            <button  class="modal-close" type="button">
+                                <span id="modal-close" class="material-icons" title="close">close</span>
+                            </button>
+                        </div>
+                        <div class="modal-content">
+                            <p>
+                                Our festival sweets/snacks are specially prepared and delivered for free based on the orders. Please inform us in advance to meet your needs. 
+                                Following items are available to order.
+                            </p>
+                            <ul>
+                                <li>Rice Kozhukattai</li>
+                                <li>Ragi Kozhukattai</li>
+                                <li>Wheat Kozhukattai</li>
+                                <li>Adhirasam</li>
+                                <li>Murukku</li>
+                            </ul>
+                        </div>
+                        <!-- <div class="modal-footer">
+                        </div> -->
+                    </div>
+                </div>
             </div>
         </div>
         <div class="dropdown_menu">
@@ -228,6 +261,32 @@
          : 'fa-solid fa-bars'
          
         }
+        var modal = document.getElementById('modal');
+        var openBtn = document.getElementById('openBtn');
+        var closeBtn = document.getElementById('modal-close');
+        var closeBox = document.getElementById('offer-box');
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', clickOut);
+        
+        function openModal() {
+            modal.style.display = 'flex';
+            modal.style.visibility = 'visible';
+        }
+        function closeModal() {
+            modal.style.display = 'none';
+            closeBox.style.display = 'none';
+        }
+        function clickOut(e) {
+            if(e.target == modal) {
+                modal.style.display = 'none';
+                closeBox.style.display = 'none';
+            }
+        }
+
+
+        
      </script>
 </body>
 </html>
